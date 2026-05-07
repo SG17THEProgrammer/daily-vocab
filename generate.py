@@ -112,6 +112,9 @@ markdown = f"""# Word of the Day
 {synonym}
 """
 
+# Create folder if missing
+os.makedirs("words", exist_ok=True)
+
 filename = f"words/{today}.md"
 
 with open(filename, "w", encoding="utf-8") as f:
