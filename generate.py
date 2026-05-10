@@ -25,22 +25,9 @@ TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 # -------------------------
 
 prompt = """
-You are an English vocabulary coach helping me improve my English day by day.
+You are an English vocabulary coach who will be helping me to improve my English day by day.
 
-Every day, give me exactly ONE English vocabulary word. The word should vary in difficulty over time — sometimes beginner, sometimes intermediate, sometimes advanced — so I gradually build a strong vocabulary.
-
-Requirements:
-- Choose a different and useful word every day.
-- Avoid repeating previously used words.
-- Include:
-  1. The word
-  2. A simple and clear meaning
-  3. One natural example sentence showing correct usage
-  4. Difficulty level (Beginner / Intermediate / Advanced)
-  5. A short pronunciation guide
-  6. Optional synonym
-
-The explanations should be easy to understand for someone improving their English through reading.
+Generate exactly ONE English vocabulary word.
 
 Return ONLY valid JSON in this exact format:
 
@@ -56,35 +43,79 @@ Return ONLY valid JSON in this exact format:
 Rules:
 - Do not include markdown.
 - Do not include extra text outside JSON.
-- Keep meanings concise and beginner-friendly.
 - Make example sentences realistic and conversational.
 - Ensure the JSON is always valid.
 """
 
 # -------------------------
+# CHECK IF WORD ALREADY EXISTS OR NOT AND LOAD IN FILE IF NOT
+# -------------------------
+
+USED_WORDS_FILE = "used_words.txt"
+
+def load_used_words():
+    if not os.path.exists(USED_WORDS_FILE):
+        return set()
+
+    with open(USED_WORDS_FILE, "r", encoding="utf-8") as f:
+        return set(line.strip().lower() for line in f.readlines())
+
+def save_word(word):
+    with open(USED_WORDS_FILE, "a", encoding="utf-8") as f:
+        f.write(word.lower() + "\n")
+
+# -------------------------
 # AI GENERATION
 # -------------------------
 
-response = client.chat.completions.create(
-    model="llama-3.3-70b-versatile",
-    messages=[
+used_words = load_used_words()
+
+MAX_RETRIES = 20
+
+data = None
+messages =[
         {"role": "user", "content": prompt}
-    ],
+    ]
+
+for attempt in range(MAX_RETRIES):
+
+    if attempt > 0:
+        messages.append({
+        "role": "user",
+        "content": f'The word "{word}" was already used. Generate a completely different word with all the other things'
+    })
+        
+    response = client.chat.completions.create(
+    model="llama-3.3-70b-versatile",
+    messages= messages,
     temperature=1
 )
+    
+    content = response.choices[0].message.content
 
-content = response.choices[0].message.content
+# print(content)
+    try :
+        data = json.loads(content)
 
-print(content)
+        word = data["word"].strip().lower()
+        meaning = data["meaning"]
+        example = data["example"]
+        difficulty = data["difficulty"]
+        pronunciation = data["pronunciation"]
+        synonym = data["synonym"]
 
-data = json.loads(content)
+        if word in used_words:
+            # print(f"Duplicate word found: {word}")
+            continue
 
-word = data["word"]
-meaning = data["meaning"]
-example = data["example"]
-difficulty = data["difficulty"]
-pronunciation = data["pronunciation"]
-synonym = data["synonym"]
+        save_word(word)
+
+        break
+
+    except Exception as e:
+        print("Error:", e)
+        continue
+
 
 # -------------------------
 # CREATE MARKDOWN FILE
