@@ -6,3 +6,4 @@ perspicacious
 narrate
 nostalgia
 malleable
+debacle
