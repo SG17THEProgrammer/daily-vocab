@@ -16,3 +16,4 @@ ruminant
 whimsical
 mellifluous
 mellow
+serene
