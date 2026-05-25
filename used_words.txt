@@ -17,3 +17,4 @@ whimsical
 mellifluous
 mellow
 serene
+luminous
