@@ -19,3 +19,4 @@ mellow
 serene
 luminous
 meticulous
+rhetoric
