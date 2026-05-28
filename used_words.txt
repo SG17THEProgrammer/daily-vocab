@@ -20,3 +20,4 @@ serene
 luminous
 meticulous
 rhetoric
+finesse
