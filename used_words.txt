@@ -27,3 +27,4 @@ luminescent
 sophisticated
 enigma
 hibernate
+rigorous
