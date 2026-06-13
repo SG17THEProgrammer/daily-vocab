@@ -36,3 +36,4 @@ cathartic
 rhapsodic
 ruminate
 rhapsody
+exuberant
