@@ -42,3 +42,4 @@ catharsis
 exasperate
 tranquil
 rigor
+canny
