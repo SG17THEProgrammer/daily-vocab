@@ -44,3 +44,4 @@ tranquil
 rigor
 canny
 ruckus
+rustic
