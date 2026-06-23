@@ -47,3 +47,4 @@ ruckus
 rustic
 enclave
 perfidious
+debate
