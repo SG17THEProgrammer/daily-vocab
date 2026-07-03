@@ -57,3 +57,4 @@ serendipity
 vivacious
 effervescent
 whimsy
+ruminative
