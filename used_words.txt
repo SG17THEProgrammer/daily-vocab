@@ -65,3 +65,4 @@ flourish
 debunk
 narrative
 phlegmatic
+vigor
