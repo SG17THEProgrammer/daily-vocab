@@ -68,3 +68,4 @@ phlegmatic
 vigor
 rampant
 ennui
+reclusive
