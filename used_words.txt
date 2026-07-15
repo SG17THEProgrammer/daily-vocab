@@ -69,3 +69,4 @@ vigor
 rampant
 ennui
 reclusive
+vacillate
