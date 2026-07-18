@@ -72,3 +72,4 @@ reclusive
 vacillate
 hapless
 sagacious
+deft
