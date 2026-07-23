@@ -77,3 +77,4 @@ rift
 recluse
 meritocratic
 hypothesis
+meritorious
