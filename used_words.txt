@@ -80,3 +80,4 @@ hypothesis
 meritorious
 catalyst
 rummage
+inquisitive
