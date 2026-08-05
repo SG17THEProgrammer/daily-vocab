@@ -88,3 +88,4 @@ resilient
 inexorable
 efficacy
 diligent
+deleterious
