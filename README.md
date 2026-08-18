@@ -6,7 +6,7 @@ This repository automatically generates and publishes a new English vocabulary w
 
 A GitHub Actions workflow is scheduled to run daily. This workflow executes the `generate.py` script, which performs the following steps:
 
-1.  **Word Generation**: Calls the Groq API using the `llama-3.3-70b-versatile` model to generate a new vocabulary word. The response is a JSON object containing the word, its meaning, an example sentence, difficulty level, pronunciation, and a synonym.
+1.  **Word Generation**: Calls the Groq API using the `openai/gpt-oss-120b` model to generate a new vocabulary word. The response is a JSON object containing the word, its meaning, an example sentence, difficulty level, pronunciation, and a synonym.
 2.  **Duplicate Check**: The script checks against `used_words.txt` to ensure the generated word has not been used before. If a duplicate is found, it retries until a unique word is generated.
 3.  **File Creation**: A new markdown file for the word is created in the `words/` directory, named with the current date (e.g., `words/YYYY-MM-DD.md`).
 4.  **Notification**: A formatted message with the new word is sent to a designated Telegram channel.
