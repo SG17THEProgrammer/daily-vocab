@@ -100,3 +100,4 @@ flamboyant
 kismet
 taciturn
 hindsight
+lucid
