@@ -102,3 +102,4 @@ taciturn
 hindsight
 lucid
 gregarious
+cogent
