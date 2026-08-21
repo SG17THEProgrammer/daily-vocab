@@ -85,7 +85,7 @@ def format_explanation(data: dict) -> str:
 YOUR_TELEGRAM_USER_ID = os.getenv("YOUR_TELEGRAM_USER_ID")
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message
-    print(f"DEBUG: {update}")  
+    # print(f"DEBUG: {update}")  
     if not message or not message.text:
         return
 
