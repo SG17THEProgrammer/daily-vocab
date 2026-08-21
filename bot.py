@@ -73,7 +73,7 @@ def format_explanation(data: dict) -> str:
         f"📘 *Word:* {data['word'].capitalize()}\n\n"
         f"📖 *Meaning:* {data['meaning']}\n\n"
         f"✏️ *Example:* {data['example']}\n\n"
-        f"🔁 *Synonyms:* {', '.join(data['synonym'])}\n"
+        f"🔁 *Synonyms:* {', '.join(data['synonym'])}\n\n"
         f"🔃 *Antonyms:* {', '.join(data['antonym'])}"
     )
 
