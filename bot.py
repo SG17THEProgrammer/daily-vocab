@@ -50,7 +50,7 @@ Rules:
 """
 
     response = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-120b",
         messages=[{"role": "user", "content": prompt}],
         temperature=0.7
     )
@@ -84,6 +84,7 @@ def format_explanation(data: dict) -> str:
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message
+    print(f"DEBUG: {update}")  
     if not message or not message.text:
         return
 
