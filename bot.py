@@ -89,6 +89,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not message or not message.text:
         return
 
+    if message.from_user.is_bot:        # ignore all bots including generate.py
+        return
+
     if message.from_user.id != YOUR_TELEGRAM_USER_ID:  # ADD THIS
         return
 
