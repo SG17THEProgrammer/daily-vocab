@@ -83,6 +83,8 @@ def format_explanation(data: dict) -> str:
 # -------------------------
 
 YOUR_TELEGRAM_USER_ID = os.getenv("YOUR_TELEGRAM_USER_ID")
+YOUR_TELEGRAM_USER_ID = int(YOUR_TELEGRAM_USER_ID) if YOUR_TELEGRAM_USER_ID else None
+
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message
     # print(f"DEBUG: {update}")  
@@ -92,7 +94,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if message.from_user.is_bot:        # ignore all bots including generate.py
         return
 
-    if message.from_user.id != YOUR_TELEGRAM_USER_ID:  # ADD THIS
+    if YOUR_TELEGRAM_USER_ID and message.from_user.id != YOUR_TELEGRAM_USER_ID:
         return
 
     word = message.text.strip()
