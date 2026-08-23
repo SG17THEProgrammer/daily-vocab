@@ -183,4 +183,9 @@ payload = {
 
 requests.post(url, data=payload)
 
-print("Telegram message sent!")
+if response.status_code == 200 and response.model_dump_json().get("ok"):
+    print("Telegram message sent successfully!")
+else:
+    print(f"Telegram ERROR: {response.status_code}")
+    print(f"Response: {response.text}")
+    exit(1)  # this will make the GitHub Action actually show as FAILED
