@@ -106,3 +106,4 @@ cogent
 conundrum
 quintessential
 alacrity
+pragmatic
