@@ -112,3 +112,4 @@ laconic
 ubiquitous
 obfuscate
 scrutinize
+ebullient
