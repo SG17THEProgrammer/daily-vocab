@@ -119,3 +119,4 @@ tenacious
 epiphany
 pensive
 ineffable
+obstinate
