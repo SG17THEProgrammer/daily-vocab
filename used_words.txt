@@ -125,3 +125,4 @@ elucidate
 cognizant
 equanimity
 lugubrious
+voracious
