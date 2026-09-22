@@ -1,8 +1,12 @@
 from telethon import TelegramClient
 from telethon.tl.types import Chat, Channel
+import os 
+from dotenv import load_dotenv
 
-api_id = 30902528
-api_hash = "d488fac8307d765b1b8cdb1a2334e7f9"
+load_dotenv()
+
+api_id = os.getenv("API_ID")
+api_hash = os.getenv("API_HASH")
 
 client = TelegramClient('session', api_id, api_hash)
 
