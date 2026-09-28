@@ -140,3 +140,4 @@ quixotic
 munificent
 plethora
 euphemism
+paucity
