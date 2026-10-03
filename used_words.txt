@@ -144,3 +144,4 @@ paucity
 circumspect
 capricious
 vociferous
+verdant
