@@ -149,3 +149,4 @@ abstruse
 sanguine
 auspicious
 insidious
+penchant
