@@ -37,7 +37,8 @@ Return ONLY valid JSON in this exact format:
   "example": "",
   "difficulty": "",
   "pronunciation": "",
-  "synonym": ""
+  "synonymn": [],
+  "antonymn": []
 }
 
 Rules:
@@ -45,6 +46,7 @@ Rules:
 - Do not include extra text outside JSON.
 - Make example sentences realistic and conversational.
 - Ensure the JSON is always valid.
+- Ensure you give atleast 3-4 antonymn and synonymn for the word.
 """
 
 # -------------------------
@@ -102,7 +104,8 @@ for attempt in range(MAX_RETRIES):
         example = data["example"]
         difficulty = data["difficulty"]
         pronunciation = data["pronunciation"]
-        synonym = data["synonym"]
+        synonymn = data["synonymn"]
+        antonymn = data["antonymn"]
 
         if word in used_words:
             # print(f"Duplicate word found: {word}")
@@ -116,6 +119,12 @@ for attempt in range(MAX_RETRIES):
         print("Error:", e)
         continue
 
+# ----------------------------------------------------
+# CONVERTING ARRAY OF STRING TO COMMA SEPERATED WORDS
+# ----------------------------------------------------
+
+synonyms_text = ", ".join(synonymn)
+antonyms_text = ", ".join(antonymn)
 
 # -------------------------
 # CREATE MARKDOWN FILE
@@ -139,8 +148,12 @@ markdown = f"""# Word of the Day
 ### Pronunciation
 {pronunciation}
 
-### Synonym
-{synonym}
+### Synonymn
+{synonyms_text}
+
+### Antonymn
+{antonyms_text}
+
 """
 
 # Create folder if missing
@@ -170,7 +183,9 @@ message = f"""
 
 🔈 Pronunciation : {pronunciation}
 
-🧮 Synonym : {synonym}
+🧮 Synonymn : {synonyms_text}
+
+🔁 Antonymn : {antonyms_text}
 
 """
 
