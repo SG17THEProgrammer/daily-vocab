@@ -168,3 +168,4 @@ audacious
 verbose
 inscrutable
 conspicuous
+indefatigable
